@@ -293,10 +293,10 @@ export default function App() {
       setIsAuthorizingPayment(false);
       setBookingStep('success');
       
-      // Auto triggers WhatsApp dispatch in a new window/tab safely matching the 1327459877 number
+      // Auto triggers WhatsApp dispatch in a new window/tab safely matching the 3217459877 number
       try {
         const receiptMsg = getWhatsAppMessageText(code);
-        const whatsappUrl = `https://api.whatsapp.com/send?phone=1327459877&text=${encodeURIComponent(receiptMsg)}`;
+        const whatsappUrl = `https://api.whatsapp.com/send?phone=3217549877&text=${encodeURIComponent(receiptMsg)}`;
         window.open(whatsappUrl, '_blank');
       } catch (err) {
         console.warn("Auto-popup blocked, user will confirm manually with the primary WhatsApp button on screen", err);

@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,550;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@theme {
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  
+  --color-tropical-dark: #002e3b; /* Vibrant Caribbean Deep Prussian Cyan */
+  --color-emerald-deep: #00b388;  /* Vivid Tropical Jade Emerald */
+  --color-emerald-mint: #05ff96;  /* High-volt Neon Mint Green */
+  --color-accent-amber: #ffae00;  /* Bright High-Saturated Sunfire Gold */
+  --color-ocean-blue: #00d2ff;    /* Glowing Bahama Lagoon Cyan-Blue */
+  --color-sand-light: #f0fdfa;    /* Sparkling Mint-tinted bright Sand */
+}
+
+/* Custom animation extensions and smooth backdrops */
+.glassmorphism {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.glassmorphism-dark {
+  background: rgba(0, 46, 59, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #FFFFFF 20%, #ffae00 70%, #ff007f 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-glow {
+  text-shadow: 0 0 12px rgba(212, 175, 55, 0.35);
+}
+
+/* Hide scrollbar but keep functionality */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Remove browser-specific text fragment yellow highlight to keep typography clean */
+*::target-text, ::target-text {
+  background-color: transparent !important;
+  background: transparent !important;
+  color: inherit !important;
+}
+
+/* Ensure no custom mark tags or target selection can create unexpected yellow overlays */
+mark, :target {
+  background-color: transparent !important;
+  background: transparent !important;
+  color: inherit !important;
+}
+
+

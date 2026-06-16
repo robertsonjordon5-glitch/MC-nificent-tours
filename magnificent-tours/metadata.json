@@ -1,0 +1,6 @@
+{
+  "name": "McNificents tours",
+  "description": "An ultra-premium Jamaican luxury sightseeing tours and private airport transfer agency. Certified by JCAL & MBJ Airport.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

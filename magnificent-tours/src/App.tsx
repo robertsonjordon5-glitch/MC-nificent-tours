@@ -261,20 +261,35 @@ export default function App() {
     return msg;
   };
 
-  // Booking Execution Action
-  const handleFinalizeBooking = (method: 'paypal' | 'card' = 'paypal') => {
-    setPaymentMethod(method);
-    setIsAuthorizingPayment(true);
-    setAuthStatusMessage(method === 'paypal' ? 'Routing to secure PayPal checkout portal...' : 'Connecting to secure co-branded card gateway...');
-    
-    // Seamless real PayPal.me payment flow redirection in new tab
-    if (method === 'paypal') {
-      try {
-        window.open(`https://www.paypal.me/AudleyMcintyre/${totalJourneyCost}`, '_blank');
-      } catch (err) {
-        console.warn("Direct PayPal redirect popup blocked, but link remains available on screen.", err);
-      }
+// Booking Execution Action
+const handleFinalizeBooking = (method: 'paypal' | 'card' | 'cashapp' = 'paypal') => {
+  setPaymentMethod(method);
+  setIsAuthorizingPayment(true);
+  
+  if (method === 'paypal') {
+    setAuthStatusMessage('Routing to secure PayPal checkout portal...');
+  } else if (method === 'cashapp') {
+    setAuthStatusMessage('Routing to secure Cash App portal...');
+  } else {
+    setAuthStatusMessage('Connecting to secure co-branded card gateway...');
+  }
+
+  // Seamless real PayPal.me payment flow redirection in new tab
+  if (method === 'paypal') {
+    try {
+      window.open(`https://www.paypal.me/AudleyMcintyre/${totalJourneyCost}`, '_blank');
+    } catch (err) {
+      console.warn("Direct PayPal redirect popup blocked, but link remains available on screen.", err);
     }
+  } 
+  // Seamless Cash App flow redirection in new tab
+  else if (method === 'cashapp') {
+    try {
+      window.open(`https://cash.app/$Audleymcintyre/${totalJourneyCost}`, '_blank');
+    } catch (err) {
+      console.warn("Direct Cash App redirect popup blocked, but link remains available on screen.", err);
+    }
+  }
 
     // Staged status messages for realistic feedback
     setTimeout(() => {

@@ -1125,6 +1125,12 @@ const handleFinalizeBooking = (method: 'paypal' | 'card' | 'cashapp' = 'paypal')
                           <strong>Direct Payment Link:</strong>{' '}
                           <a href={`https://www.paypal.me/AudleyMcintyre/${totalJourneyCost}`} target="_blank" rel="noopener noreferrer" className="font-mono font-bold text-blue-600 hover:underline inline-flex items-center gap-1 break-all">
                             paypal.me/AudleyMcintyre/{totalJourneyCost} 🔗
+                         <button 
+                onClick={() => handleFinalizeBooking('cashapp')}
+                className="w-full flex items-center justify-center gap-2 bg-green-500 text-white py-3 px-4 rounded-xl font-semibold hover:bg-green-600 transition-colors mt-3"
+            >
+           Pay with Cash App
+                     </button>
                           </a>
                         </p>
                         <p className="text-[10px] text-gray-500 leading-normal italic mt-1 bg-white/50 p-2 rounded-lg border border-gray-100">
